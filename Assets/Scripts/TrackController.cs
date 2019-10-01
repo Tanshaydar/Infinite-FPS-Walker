@@ -10,7 +10,7 @@ public class TrackController : MonoBehaviour
     [SerializeField] private GameObject[] TrackPrefabs;
 
     [SerializeField]
-    private List<GameObject> _pool;
+    private List<GameObject> pool;
     
     private float _currentOffset;
 
@@ -32,13 +32,13 @@ public class TrackController : MonoBehaviour
 
     public void PoolGather(GameObject track)
     {
-        _pool.Add(track);
-        if (_pool.Count > STARTING_TRACK_QUANTITY)
+        pool.Add(track);
+        if (pool.Count > STARTING_TRACK_QUANTITY)
         {
-            GameObject newTrack = _pool[Random.Range(0, _pool.Count - 1)];
+            GameObject newTrack = pool[Random.Range(0, pool.Count - 1)];
             newTrack.transform.position = new Vector3(0, 0, _currentOffset);
             _currentOffset += NEW_TRACK_OFFSET;
-            _pool.Remove(newTrack);
+            pool.Remove(newTrack);
         }
     }
 }

@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameController : MonoBehaviour
 {
     [Header("UI Related")] public TextMeshProUGUI IndicatorText;
-    public GameObject Panel;
+    [FormerlySerializedAs("Panel")] public GameObject IndicatorPanel;
+    public PauseMenuController PauseMenu;
 
-    private int startingWait = 3;
+    [SerializeField] private int startingWait = 3;
     private PlayerController _playerController;
     private Vector3 _distanceCovered;
 
@@ -26,9 +27,10 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(1);
             startingWait--;
         }
-        Panel.SetActive(false);
+
+        IndicatorPanel.SetActive(false);
         IndicatorText.text = "";
-        
+
         _playerController.StartMoving();
         _distanceCovered = _playerController.transform.position;
     }
@@ -36,8 +38,10 @@ public class GameController : MonoBehaviour
     public void GameOverByObstacle()
     {
         _playerController.Die();
-        Panel.SetActive(true);
+        IndicatorPanel.SetActive(true);
         IndicatorText.text = "Death by Obstacle...";
+        PauseMenu.ShowGameOverMenu();
+        // Covered distance is part of highscore system and won't be shown
         float distance = Vector3.Distance(_distanceCovered, _playerController.transform.position);
     }
 }
