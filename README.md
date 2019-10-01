@@ -16,7 +16,7 @@ This is a very basic infinite runner example, so gameplay is pretty simple:
 * Hands are used as visual distractors, or jumpscares if you will, and does not affect player. Bloody screen effect was going to be implemented but I didn't want to push the deadline
 
 ## Playable Build
-Playable build is Builds/InfiniteFPSWalker.zip file, download and extract.
+Playable build is InfiniteFPSWalker.zip file, download and extract.
 
 ## Architecture
 * This project is made with Unity 2019.2.7, w/ Plus Subscription
