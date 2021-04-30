@@ -3,7 +3,7 @@
 A demo project to demonstrate infinite runner concept in Unity.
 Was created in one evening using existing assets and with minimal yet maintainable and extensible code.
 
-![](https://media.giphy.com/media/W4odpAgUi2Lhv0xts5/giphy.gif)
+https://user-images.githubusercontent.com/1215477/116632599-37059780-a960-11eb-9e47-7805c9bd13f2.mp4
 
 ## Gameplay
 This is a very basic infinite runner example, so gameplay is pretty simple:
